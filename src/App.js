@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import UseCount from "./hooks/UseCount";
+import "./style.css"
 function App() {
+  const [count, increase, decrease] = UseCount();
+  let custom ={
+    color:"red",
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="box">
+      <p style={(count===0)?custom:{color:"blue"}}>{count}</p>
+      <div className="btn-div">
+        <button onClick={increase}>+</button>
+        <button onClick={decrease}>-</button>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
